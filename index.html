@@ -58,7 +58,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(38, 4, 10, 0.94);
+      background: rgba(38, 4, 10, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1.5px solid var(--gold);
       padding: 0.75rem 1.25rem;
@@ -125,11 +125,7 @@
       transition: all 0.25s ease;
     }
 
-    .music-btn:hover {
-      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
-      color: var(--velvet-dark);
-    }
-
+    .music-btn:hover,
     .music-btn.playing {
       background: linear-gradient(135deg, var(--gold-bright), var(--gold));
       color: var(--velvet-dark);
@@ -145,7 +141,7 @@
         linear-gradient(160deg, var(--velvet-dark) 0%, var(--velvet) 50%, var(--velvet-dark) 100%);
       color: var(--ivory);
       text-align: center;
-      padding: 4.5rem 1.25rem 4.5rem;
+      padding: 4rem 1.25rem 4rem;
       border-bottom: 4px double var(--gold);
       overflow: hidden;
     }
@@ -172,23 +168,11 @@
       z-index: 2;
       max-width: 860px;
       margin: 0 auto;
-      padding: 3rem 1.75rem 2.75rem;
+      padding: 2.8rem 1.65rem 2.6rem;
       border: 2px solid var(--gold);
       border-radius: 220px 220px 28px 28px;
       background: linear-gradient(180deg, rgba(255, 252, 245, 0.08), rgba(38, 4, 10, 0.58));
       box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), inset 0 0 35px rgba(212, 175, 55, 0.18);
-      animation: archEntrance 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-
-    @keyframes archEntrance {
-      from {
-        opacity: 0;
-        transform: translateY(28px) scale(0.97);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
     }
 
     .royal-arch::before {
@@ -222,7 +206,7 @@
     }
 
     .couple-hero {
-      font-size: clamp(2.6rem, 7vw, 4.4rem);
+      font-size: clamp(2.5rem, 7vw, 4.3rem);
       color: var(--gold-bright);
       line-height: 1.2;
       text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
@@ -236,11 +220,11 @@
       background: linear-gradient(135deg, var(--gold-bright), var(--gold));
       color: var(--velvet-dark);
       font-family: 'Noto Sans Devanagari', sans-serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-size: clamp(1.05rem, 2.5vw, 1.4rem);
       font-weight: 800;
-      padding: 0.25rem 1.1rem;
+      padding: 0.22rem 1.05rem;
       border-radius: 999px;
-      margin: 0 0.5rem;
+      margin: 0 0.45rem;
       vertical-align: middle;
       box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
       animation: pulseBadge 2.4s ease-in-out infinite;
@@ -260,7 +244,7 @@
 
     /* Countdown Grid */
     .countdown-wrap {
-      margin: 1.9rem auto 1.6rem;
+      margin: 1.8rem auto 1.5rem;
       max-width: 560px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -293,7 +277,7 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.4rem;
+      margin-top: 1.3rem;
     }
 
     .strip-item {
@@ -306,7 +290,7 @@
     }
 
     .cta-row {
-      margin-top: 1.8rem;
+      margin-top: 1.7rem;
       display: flex;
       justify-content: center;
       gap: 0.85rem;
@@ -354,27 +338,18 @@
       background: rgba(247, 225, 156, 0.18);
     }
 
-    /* Common Section Layout */
+    /* Common Section Layout - Always Visible */
     section.block {
       max-width: 1160px;
       margin: 0 auto;
-      padding: 4.5rem 1.25rem;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .reveal.visible {
+      padding: 4rem 1.25rem;
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     .sec-head {
       text-align: center;
-      margin-bottom: 2.8rem;
+      margin-bottom: 2.5rem;
     }
 
     .sec-kicker {
@@ -409,22 +384,22 @@
     /* Couple Cards */
     .couple-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.85rem;
     }
 
     .palace-card {
       background: var(--card-bg);
       border: 1.5px solid var(--border-gold);
       border-radius: 24px;
-      padding: 2.2rem 1.8rem;
+      padding: 2rem 1.7rem;
       box-shadow: 0 18px 42px rgba(74, 10, 22, 0.08);
       position: relative;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
 
     .palace-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       box-shadow: 0 24px 50px rgba(74, 10, 22, 0.14);
     }
 
@@ -449,7 +424,7 @@
     }
 
     .bride-groom-title {
-      font-size: 1.95rem;
+      font-size: 1.9rem;
       color: var(--velvet-dark);
       margin-bottom: 0.8rem;
     }
@@ -476,7 +451,7 @@
     /* Events Showcase */
     .events-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.85rem;
     }
 
@@ -492,12 +467,12 @@
     }
 
     .ceremony-card:hover {
-      transform: translateY(-7px);
+      transform: translateY(-6px);
       box-shadow: 0 24px 52px rgba(74, 10, 22, 0.16);
     }
 
     .art-banner {
-      height: 180px;
+      height: 175px;
       background: radial-gradient(circle at center, #6e1222 0%, #2c050c 100%);
       border-bottom: 2px solid var(--gold);
       display: flex;
@@ -525,8 +500,8 @@
     }
 
     .art-banner svg {
-      width: 155px;
-      height: 155px;
+      width: 150px;
+      height: 150px;
       filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
     }
 
@@ -564,12 +539,9 @@
       animation: danceSwingRight 1.1s ease-in-out infinite alternate;
     }
 
-    body.music-playing .dancer-left {
-      animation: danceSwingLeft 0.65s ease-in-out infinite alternate;
-    }
-
+    body.music-playing .dancer-left,
     body.music-playing .dancer-right {
-      animation: danceSwingRight 0.65s ease-in-out infinite alternate;
+      animation-duration: 0.65s;
     }
 
     @keyframes danceSwingLeft {
@@ -587,9 +559,9 @@
     }
 
     @keyframes noteRise {
-      0% { opacity: 0.4; transform: translateY(4px); }
+      0% { opacity: 0.45; transform: translateY(4px); }
       50% { opacity: 1; transform: translateY(-4px); }
-      100% { opacity: 0.4; transform: translateY(4px); }
+      100% { opacity: 0.45; transform: translateY(4px); }
     }
 
     .haldi-float {
@@ -621,7 +593,7 @@
     }
 
     .ceremony-body {
-      padding: 1.6rem 1.65rem 1.75rem;
+      padding: 1.55rem 1.6rem 1.7rem;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -642,7 +614,7 @@
     }
 
     .c-title {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       color: var(--velvet-dark);
       font-weight: 700;
       margin-bottom: 0.45rem;
@@ -672,17 +644,17 @@
       background: linear-gradient(145deg, var(--velvet-dark), var(--velvet));
       color: var(--ivory);
       border-radius: 28px;
-      padding: 2.75rem 2.2rem;
+      padding: 2.5rem 2rem;
       border: 2px solid var(--gold);
       box-shadow: 0 24px 60px rgba(38, 4, 10, 0.24);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       align-items: center;
     }
 
     .venue-palace h3 {
-      font-size: 1.9rem;
+      font-size: 1.85rem;
       color: var(--gold-bright);
       margin-bottom: 0.6rem;
     }
@@ -699,7 +671,7 @@
     /* Family Grid */
     .family-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.6rem;
     }
 
@@ -709,11 +681,6 @@
       border-radius: 20px;
       padding: 1.7rem;
       box-shadow: 0 14px 34px rgba(74, 10, 22, 0.07);
-      transition: transform 0.3s ease;
-    }
-
-    .fam-box:hover {
-      transform: translateY(-4px);
     }
 
     .fam-box h4 {
@@ -830,7 +797,7 @@
   </section>
 
   <!-- Couple & Lineage -->
-  <section id="couple" class="block reveal">
+  <section id="couple" class="block">
     <div class="sec-head">
       <div class="sec-kicker">पवित्र परिणय बंधन</div>
       <h2 class="sec-title display-hindi">आयुष्मान एवं आयुष्मति</h2>
@@ -861,7 +828,7 @@
   </section>
 
   <!-- Animated Illustrated Events -->
-  <section id="events" class="block reveal">
+  <section id="events" class="block">
     <div class="sec-head">
       <div class="sec-kicker">शगुन के सुनहरे पल</div>
       <h2 class="sec-title display-hindi">मांगलिक कार्यक्रम</h2>
@@ -1030,4 +997,286 @@
           <svg viewBox="0 0 180 160" fill="none">
             <circle cx="90" cy="80" r="68" stroke="#f7e19c" stroke-width="1.8" stroke-dasharray="4 4"/>
             <path d="M52 108 L118 46 L128 56 L58 112 Z" fill="#f7e19c"/>
-            <path d="M128 108 L62 46 L52 56 L122 
+            <path d="M128 108 L62 46 L52 56 L122 112 Z" fill="#d4af37"/>
+            <path class="flame-anim" d="M90 66 C98 76 98 88 90 94 C82 88 82 76 90 66 Z" fill="#ffcf40"/>
+            <path d="M74 88 Q90 104 106 88" stroke="#fff3c4" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <text x="72" y="132" fill="#f7e19c" font-size="13" font-weight="bold">॥ शुभम् ॥</text>
+          </svg>
+        </div>
+        <div class="ceremony-body">
+          <div>
+            <span class="c-date">शनिवार, 05 दिसंबर 2026</span>
+            <h3 class="c-title">आशीर्वाद समारोह एवं स्वरुचिभोज</h3>
+            <p class="c-desc">नवदम्पति को शुभाशीष प्रदान करने एवं शाही स्वरुचिभोज हेतु आप सपरिवार सादर आमंत्रित हैं।</p>
+          </div>
+          <div class="c-footer">
+            <span>⏰ शाम 08:00 बजे से रात्रि तक</span>
+            <span>📍 जे. के. रिसॉर्ट</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Venue Section -->
+  <section id="venue" class="block">
+    <div class="venue-palace">
+      <div>
+        <div class="sec-kicker" style="color: var(--gold-bright);">विवाह स्थल एवं दिशा निर्देश</div>
+        <h3 class="display-hindi">जे. के. रिसॉर्ट, गाडरवारा</h3>
+        <p><strong>पता:</strong> जे. के. रिसॉर्ट, रेलवे स्टेशन के पास, पतलोन रोड, गाडरवारा, जिला नरसिंहपुर (म.प्र.)</p>
+        <div class="venue-note">
+          <strong>विशेष सूचना:</strong> 05 दिसंबर, दिन शनिवार के सभी कार्यक्रम <strong>जे. के. रिसॉर्ट, गाडरवारा</strong> में सम्पन्न होंगे।
+        </div>
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=JK+Resort+Patlon+Road+Gadarwara+Narsinghpur+Madhya+Pradesh"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-royal"
+        >
+          📍 Google Maps पर लोकेशन खोलें
+        </a>
+      </div>
+
+      <div class="palace-card" style="color: var(--ink);">
+        <span class="side-tag">स्नेह निमंत्रण</span>
+        <h4 style="color: var(--velvet-dark); font-size: 1.35rem; margin-bottom: 0.65rem;">के मंगल परिणय पर</h4>
+        <p style="font-size: 0.96rem; color: var(--muted);">
+          “आपके प्रति हमारा... हमारे प्रति आपका, थोड़ा सा स्नेह... थोड़ा सा प्यार, सौभाग्य है... आपके स्वागत का प्रसंग है... शुभ विवाह का, पदार्पण आपका... हमारा सौभाग्य होगा।”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Family Directory -->
+  <section id="family" class="block">
+    <div class="sec-head">
+      <div class="sec-kicker">आत्मीय स्वागत</div>
+      <h2 class="sec-title display-hindi">दर्शनाभिलाषी एवं स्वागताकांक्षी</h2>
+      <div class="royal-ornament"><span></span>✦<span></span></div>
+    </div>
+
+    <div class="family-grid">
+      <div class="fam-box">
+        <h4>दर्शनाभिलाषी</h4>
+        <p><strong>नानाजी–नानी:</strong> श्री रामनारायण – लक्ष्मीबाई</p>
+        <p>श्री मोहनलाल – उमेदीबाई नामदेव</p>
+        <p>हरगोविन्द – बसंती बाई</p>
+        <p><strong>बुआजी:</strong> सत्यवती नामदेव</p>
+        <p><strong>फूफाजी–बुआ:</strong> लक्ष्मण – मुन्नीबाई नामदेव</p>
+        <p><strong>मामा–मामी:</strong> गोविन्द – पुष्पा, संतोष – प्रीति, विनोद – संध्या, प्रमोद – शिखा, सतीश – कीर्ति</p>
+      </div>
+
+      <div class="fam-box">
+        <h4>स्वागताकांक्षी</h4>
+        <p><strong>जीजाजी–दीदी:</strong> सुधीर – राजकुमारी नामदेव, महेश – पुष्पा नामदेव, प्रकाश – रश्मि नामदेव, पवन – पूजा नामदेव</p>
+        <p><strong>भैया–भाभी:</strong> महेश – मंजू नामदेव, गौरव – ममता नामदेव</p>
+        <p><strong>भतीजे–भतीजी:</strong> अंशुल, आशु, अंशिका</p>
+        <p><strong>बहन–भाई:</strong> शिवानी, पूर्वी, प्रियांशी, तनिशा, नैन्सी, दिव्यांशी, केशव</p>
+      </div>
+
+      <div class="fam-box">
+        <h4>विनीत एवं निहारते नयन</h4>
+        <p><strong>बड़ीमम्मी:</strong> छोटी बाई नामदेव</p>
+        <p><strong>पापा–मम्मी:</strong> श्रीराम नामदेव – श्रीमति लीलावती नामदेव एवं समस्त नामदेव परिवार</p>
+        <p style="margin-top: 1rem; padding-top: 0.7rem; border-top: 1px dashed rgba(212,175,55,0.4);">
+          <strong>निहारते नयन:</strong> पीहू, माधव, धैर्य
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p style="color: var(--gold-bright); font-size: 1rem; margin-bottom: 0.6rem;">
+      “भेज रहे हैं स्नेह निमंत्रण, तुम्हे बुलाने को, भूल न जाना शादी में आने को....”
+    </p>
+    <h4>प्रेषक — श्रीराम नामदेव (रिटा. स्वास्थ्य विभाग) एवं श्रीमति लीलावती नामदेव</h4>
+    <p>इंद्रा वार्ड, त्रिवेदी कालोनी, गाडरवारा, जिला नरसिंहपुर (म.प्र.)</p>
+    <p style="color: var(--gold-bright); font-weight: 700; margin-top: 0.4rem;">
+      संपर्क सूत्र: 9424304532, 9039188008
+    </p>
+  </footer>
+
+  <script>
+    // In-Browser Wedding Shehnai & Gentle Rhythm Synthesizer
+    let audioCtx = null;
+    let isPlayingMusic = false;
+    let musicInterval = null;
+    let noteStep = 0;
+
+    const melodyNotes = [261.63, 293.66, 329.63, 392.00, 440.00, 392.00, 329.63, 293.66,
+                          329.63, 392.00, 440.00, 523.25, 440.00, 392.00, 329.63, 261.63];
+
+    function playShehnaiNote(freq) {
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+
+      const osc1 = audioCtx.createOscillator();
+      const osc2 = audioCtx.createOscillator();
+      const filter = audioCtx.createBiquadFilter();
+      const gain = audioCtx.createGain();
+
+      osc1.type = "sawtooth";
+      osc2.type = "triangle";
+      osc1.frequency.setValueAtTime(freq, now);
+      osc2.frequency.setValueAtTime(freq * 1.003, now);
+
+      filter.type = "lowpass";
+      filter.frequency.setValueAtTime(1450, now);
+      filter.Q.setValueAtTime(2.5, now);
+
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(0.045, now + 0.08);
+      gain.gain.exponentialRampToValueAtTime(0.0008, now + 0.46);
+
+      osc1.connect(filter);
+      osc2.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc1.start(now);
+      osc2.start(now);
+      osc1.stop(now + 0.48);
+      osc2.stop(now + 0.48);
+
+      if (noteStep % 4 === 0) {
+        const dholOsc = audioCtx.createOscillator();
+        const dholGain = audioCtx.createGain();
+        dholOsc.type = "sine";
+        dholOsc.frequency.setValueAtTime(115, now);
+        dholOsc.frequency.exponentialRampToValueAtTime(52, now + 0.16);
+
+        dholGain.gain.setValueAtTime(0.09, now);
+        dholGain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
+        dholOsc.connect(dholGain);
+        dholGain.connect(audioCtx.destination);
+        dholOsc.start(now);
+        dholOsc.stop(now + 0.19);
+      }
+
+      noteStep = (noteStep + 1) % melodyNotes.length;
+    }
+
+    function toggleWeddingMusic() {
+      const btn = document.getElementById("musicToggleBtn");
+      const icon = document.getElementById("musicIcon");
+      const label = document.getElementById("musicLabel");
+      const heroBtn = document.getElementById("heroMusicBtn");
+
+      if (!isPlayingMusic) {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+        isPlayingMusic = true;
+        document.body.classList.add("music-playing");
+        btn.classList.add("playing");
+        icon.textContent = "🔊";
+        label.textContent = "शहनाई बंद करें";
+        heroBtn.textContent = "🔇 मंगल धुन बंद करें";
+
+        playShehnaiNote(melodyNotes[noteStep]);
+        musicInterval = setInterval(() => {
+          playShehnaiNote(melodyNotes[noteStep]);
+        }, 480);
+      } else {
+        isPlayingMusic = false;
+        document.body.classList.remove("music-playing");
+        btn.classList.remove("playing");
+        icon.textContent = "🎵";
+        label.textContent = "शहनाई बजाएं";
+        heroBtn.textContent = "🎶 मंगल धुन सुनें";
+
+        if (musicInterval) {
+          clearInterval(musicInterval);
+          musicInterval = null;
+        }
+      }
+    }
+
+    document.getElementById("musicToggleBtn").addEventListener("click", toggleWeddingMusic);
+    document.getElementById("heroMusicBtn").addEventListener("click", toggleWeddingMusic);
+
+    // Reliable Countdown to 05 Dec 2026, 4:00 PM (Month index 11 = December)
+    const targetDate = new Date(2026, 11, 5, 16, 0, 0).getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML =
+          '<div class="cd-box" style="grid-column: 1 / -1;"><span class="cd-num">शुभ विवाह सम्पन्न</span></div>';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("cd-days").textContent = String(days).padStart(2, "0");
+      document.getElementById("cd-hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("cd-mins").textContent = String(mins).padStart(2, "0");
+      document.getElementById("cd-secs").textContent = String(secs).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Floating Rose & Marigold Petals
+    const canvas = document.getElementById("petalsCanvas");
+    const ctx = canvas.getContext("2d");
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const colors = ["rgba(212, 175, 55, 0.48)", "rgba(185, 28, 56, 0.36)", "rgba(255, 179, 25, 0.42)"];
+    const petals = Array.from({ length: 24 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: 4 + Math.random() * 5,
+      speedY: 0.6 + Math.random() * 1.1,
+      speedX: -0.4 + Math.random() * 0.8,
+      angle: Math.random() * Math.PI * 2,
+      spin: -0.02 + Math.random() * 0.04,
+      color: colors[Math.floor(Math.random() * colors.length)]
+    }));
+
+    function animatePetals() {
+      ctx.clearRect(0, 0, width, height);
+      petals.forEach((p) => {
+        p.y += p.speedY;
+        p.x += p.speedX + Math.sin(p.angle) * 0.3;
+        p.angle += p.spin;
+
+        if (p.y > height + 10) {
+          p.y = -10;
+          p.x = Math.random() * width;
+        }
+
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+      requestAnimationFrame(animatePetals);
+    }
+
+    animatePetals();
+  </script>
+</body>
+</html>

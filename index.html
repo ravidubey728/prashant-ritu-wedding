@@ -102,12 +102,12 @@
       color: var(--gold-bright);
     }
 
-    /* Dramatic Royal Hero */
+    /* Hero Section */
     .hero {
       position: relative;
       background:
-        radial-gradient(circle at 50% 18%, rgba(247, 225, 156, 0.22), transparent 55%),
-        radial-gradient(circle at 15% 85%, rgba(212, 175, 55, 0.14), transparent 45%),
+        radial-gradient(circle at 50% 18%, rgba(247, 225, 156, 0.24), transparent 55%),
+        radial-gradient(circle at 15% 85%, rgba(212, 175, 55, 0.16), transparent 45%),
         linear-gradient(160deg, var(--velvet-dark) 0%, var(--velvet) 50%, var(--velvet-dark) 100%);
       color: var(--ivory);
       text-align: center;
@@ -123,9 +123,9 @@
       width: 680px;
       height: 680px;
       transform: translate(-50%, -50%);
-      opacity: 0.08;
+      opacity: 0.09;
       pointer-events: none;
-      animation: spinSlow 70s linear infinite;
+      animation: spinSlow 65s linear infinite;
     }
 
     @keyframes spinSlow {
@@ -141,8 +141,20 @@
       padding: 3rem 1.75rem 2.75rem;
       border: 2px solid var(--gold);
       border-radius: 220px 220px 28px 28px;
-      background: linear-gradient(180deg, rgba(255, 252, 245, 0.07), rgba(38, 4, 10, 0.55));
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), inset 0 0 35px rgba(212, 175, 55, 0.16);
+      background: linear-gradient(180deg, rgba(255, 252, 245, 0.08), rgba(38, 4, 10, 0.58));
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), inset 0 0 35px rgba(212, 175, 55, 0.18);
+      animation: archEntrance 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes archEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .royal-arch::before {
@@ -160,6 +172,12 @@
       font-weight: 700;
       letter-spacing: 1px;
       margin-bottom: 0.4rem;
+      animation: gentleGlow 2.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes gentleGlow {
+      from { text-shadow: 0 0 6px rgba(247, 225, 156, 0.25); }
+      to { text-shadow: 0 0 18px rgba(247, 225, 156, 0.75); }
     }
 
     .shloka {
@@ -190,7 +208,13 @@
       border-radius: 999px;
       margin: 0 0.5rem;
       vertical-align: middle;
-      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45);
+      animation: pulseBadge 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulseBadge {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
     }
 
     .hero-subtitle {
@@ -265,7 +289,7 @@
 
     .btn-royal:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 32px rgba(212, 175, 55, 0.5);
+      box-shadow: 0 14px 32px rgba(212, 175, 55, 0.55);
     }
 
     /* Common Section Layout */
@@ -273,6 +297,18 @@
       max-width: 1160px;
       margin: 0 auto;
       padding: 4.5rem 1.25rem;
+    }
+
+    /* Scroll Reveal Class */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .sec-head {
@@ -323,11 +359,12 @@
       padding: 2.2rem 1.8rem;
       box-shadow: 0 18px 42px rgba(74, 10, 22, 0.08);
       position: relative;
-      transition: transform 0.3s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
 
     .palace-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 50px rgba(74, 10, 22, 0.14);
     }
 
     .palace-card::after {
@@ -375,7 +412,7 @@
       font-size: 0.8rem;
     }
 
-    /* Dramatic Events Showcase with Custom Illustrations */
+    /* Events Showcase */
     .events-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -390,16 +427,16 @@
       box-shadow: 0 18px 42px rgba(74, 10, 22, 0.09);
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
 
     .ceremony-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 52px rgba(74, 10, 22, 0.15);
+      transform: translateY(-7px);
+      box-shadow: 0 24px 52px rgba(74, 10, 22, 0.16);
     }
 
     .art-banner {
-      height: 175px;
+      height: 180px;
       background: radial-gradient(circle at center, #6e1222 0%, #2c050c 100%);
       border-bottom: 2px solid var(--gold);
       display: flex;
@@ -407,6 +444,7 @@
       justify-content: center;
       padding: 1rem;
       position: relative;
+      overflow: hidden;
     }
 
     .art-banner.haldi-theme {
@@ -426,9 +464,88 @@
     }
 
     .art-banner svg {
-      width: 145px;
-      height: 145px;
+      width: 155px;
+      height: 155px;
       filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+    }
+
+    /* Keyframe Animations inside Illustrations */
+    .flame-anim {
+      transform-origin: center bottom;
+      animation: flameFlicker 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes flameFlicker {
+      0% { transform: scale(0.95, 0.98) rotate(-2deg); }
+      100% { transform: scale(1.06, 1.08) rotate(2deg); }
+    }
+
+    .dhol-beat {
+      transform-origin: center;
+      animation: dholThump 0.75s ease-in-out infinite;
+    }
+
+    @keyframes dholThump {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.06) rotate(-1.5deg); }
+    }
+
+    .dancer-left {
+      transform-origin: bottom center;
+      animation: danceSwingLeft 1.1s ease-in-out infinite alternate;
+    }
+
+    .dancer-right {
+      transform-origin: bottom center;
+      animation: danceSwingRight 1.1s ease-in-out infinite alternate;
+    }
+
+    @keyframes danceSwingLeft {
+      0% { transform: translateY(0px) rotate(-5deg); }
+      100% { transform: translateY(-6px) rotate(6deg); }
+    }
+
+    @keyframes danceSwingRight {
+      0% { transform: translateY(-6px) rotate(6deg); }
+      100% { transform: translateY(0px) rotate(-5deg); }
+    }
+
+    .notes-float {
+      animation: noteRise 2s ease-in-out infinite;
+    }
+
+    @keyframes noteRise {
+      0% { opacity: 0.4; transform: translateY(4px); }
+      50% { opacity: 1; transform: translateY(-4px); }
+      100% { opacity: 0.4; transform: translateY(4px); }
+    }
+
+    .haldi-float {
+      animation: gentleBob 2.4s ease-in-out infinite alternate;
+    }
+
+    .haldi-spark {
+      animation: sparkPop 1.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes gentleBob {
+      0% { transform: translateY(2px); }
+      100% { transform: translateY(-4px); }
+    }
+
+    @keyframes sparkPop {
+      0% { opacity: 0.55; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.18); }
+    }
+
+    .kalash-float {
+      transform-origin: center;
+      animation: kalashSway 2.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes kalashSway {
+      0% { transform: rotate(-2deg) translateY(1px); }
+      100% { transform: rotate(2deg) translateY(-3px); }
     }
 
     .ceremony-body {
@@ -520,6 +637,11 @@
       border-radius: 20px;
       padding: 1.7rem;
       box-shadow: 0 14px 34px rgba(74, 10, 22, 0.07);
+      transition: transform 0.3s ease;
+    }
+
+    .fam-box:hover {
+      transform: translateY(-4px);
     }
 
     .fam-box h4 {
@@ -577,7 +699,6 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <!-- Rotating Sacred Mandala -->
     <svg class="mandala-bg" viewBox="0 0 200 200" fill="none" stroke="#f7e19c" stroke-width="1">
       <circle cx="100" cy="100" r="92" />
       <circle cx="100" cy="100" r="76" stroke-dasharray="4 4" />
@@ -628,7 +749,7 @@
   </section>
 
   <!-- Couple & Lineage -->
-  <section id="couple" class="block">
+  <section id="couple" class="block reveal">
     <div class="sec-head">
       <div class="sec-kicker">पवित्र परिणय बंधन</div>
       <h2 class="sec-title display-hindi">आयुष्मान एवं आयुष्मति</h2>
@@ -658,371 +779,9 @@
     </div>
   </section>
 
-  <!-- Dramatic Illustrated Events -->
-  <section id="events" class="block">
+  <!-- Animated Illustrated Events -->
+  <section id="events" class="block reveal">
     <div class="sec-head">
       <div class="sec-kicker">शगुन के सुनहरे पल</div>
       <h2 class="sec-title display-hindi">मांगलिक कार्यक्रम</h2>
-      <div class="royal-ornament"><span></span>✦<span></span></div>
-    </div>
-
-    <div class="events-grid">
-
-      <!-- 1. Ganesh Pujan -->
-      <article class="ceremony-card">
-        <div class="art-banner">
-          <!-- Custom Royal Ganesh & Swastik Emblem -->
-          <svg viewBox="0 0 160 160" fill="none">
-            <circle cx="80" cy="80" r="68" stroke="#f7e19c" stroke-width="2" stroke-dasharray="5 4"/>
-            <circle cx="80" cy="80" r="56" fill="rgba(247,225,156,0.12)" stroke="#d4af37" stroke-width="1.5"/>
-            <!-- Tilak & Crown -->
-            <path d="M62 46 L80 26 L98 46 Z" fill="#f7e19c"/>
-            <path d="M77 52 L80 62 L83 52" stroke="#ff5252" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Stylized Ganesh Trunk & Ears -->
-            <path d="M56 64 C42 64 40 86 55 88" stroke="#f7e19c" stroke-width="3" fill="none"/>
-            <path d="M104 64 C118 64 120 86 105 88" stroke="#f7e19c" stroke-width="3" fill="none"/>
-            <path d="M66 60 C66 50 94 50 94 60 C94 74 82 78 82 92 C82 104 94 106 96 98" stroke="#f7e19c" stroke-width="4" stroke-linecap="round" fill="none"/>
-            <!-- Diya -->
-            <path d="M58 122 Q80 134 102 122 Z" fill="#d4af37"/>
-            <path d="M80 106 C85 113 85 119 80 121 C75 119 75 113 80 106 Z" fill="#ffcf40"/>
-          </svg>
-        </div>
-        <div class="ceremony-body">
-          <div>
-            <span class="c-date">गुरुवार, 03 दिसंबर 2026</span>
-            <h3 class="c-title">श्री गणेश पूजन एवं मातृकापूजन</h3>
-            <p class="c-desc">विघ्नहर्ता श्री गणेश जी की आराधना एवं मातृकापूजन के साथ मांगलिक उत्सव का पावन शुभारंभ।</p>
-          </div>
-          <div class="c-footer">
-            <span>⏰ प्रातः 09:00 बजे</span>
-            <span>निवास स्थान, गाडरवारा</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 2. Haldi & Mandap -->
-      <article class="ceremony-card">
-        <div class="art-banner haldi-theme">
-          <!-- Custom Haldi Bowl, Marigold & Haldi Application Art -->
-          <svg viewBox="0 0 160 160" fill="none">
-            <circle cx="80" cy="80" r="68" stroke="#fff3b0" stroke-width="2" stroke-dasharray="4 4"/>
-            <!-- Marigold Garland Top -->
-            <circle cx="48" cy="38" r="7" fill="#ff9f1c"/>
-            <circle cx="64" cy="31" r="8" fill="#ffbf00"/>
-            <circle cx="80" cy="29" r="9" fill="#ff9f1c"/>
-            <circle cx="96" cy="31" r="8" fill="#ffbf00"/>
-            <circle cx="112" cy="38" r="7" fill="#ff9f1c"/>
-            <!-- Haldi Paste Mound -->
-            <path d="M52 94 Q80 66 108 94 Z" fill="#ffd60a"/>
-            <!-- Royal Brass Haldi Bowl (Katori) -->
-            <path d="M44 94 H116 L106 122 Q80 130 54 122 Z" fill="#f7e19c" stroke="#8a5a00" stroke-width="2"/>
-            <!-- Mango Leaves & Haldi Brush/Hand Splash -->
-            <path d="M98 76 L122 54" stroke="#fff3b0" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="124" cy="52" r="6" fill="#ffd60a"/>
-            <circle cx="42" cy="72" r="3" fill="#ffd60a"/>
-            <circle cx="122" cy="80" r="3.5" fill="#ffd60a"/>
-          </svg>
-        </div>
-        <div class="ceremony-body">
-          <div>
-            <span class="c-date">शुक्रवार, 04 दिसंबर 2026</span>
-            <h3 class="c-title">मंडपाच्छादन एवं हल्दी</h3>
-            <p class="c-desc">मंगल गीतों, गेंदे के फूलों और शगुन की हल्दी के साथ पारंपरिक मंडपाच्छादन रस्म।</p>
-          </div>
-          <div class="c-footer">
-            <span>⏰ प्रातः 11:00 बजे</span>
-            <span>मंगल उत्सव</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 3. Sangeet Bela (Dhol & Dancing People) -->
-      <article class="ceremony-card">
-        <div class="art-banner sangeet-theme">
-          <!-- Custom Royal Dhol & Dancing Couple Silhouette -->
-          <svg viewBox="0 0 180 160" fill="none">
-            <circle cx="90" cy="80" r="70" stroke="#f7e19c" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <!-- Dancing Person Left -->
-            <circle cx="42" cy="54" r="7" fill="#f7e19c"/>
-            <path d="M42 63 L42 92 M42 70 L26 56 M42 70 L58 58 M42 92 L30 116 M42 92 L54 114" stroke="#f7e19c" stroke-width="3.2" stroke-linecap="round"/>
-            <!-- Royal Dhol in Center -->
-            <rect x="68" y="68" width="44" height="32" rx="6" fill="#d4af37" stroke="#fff3c4" stroke-width="2"/>
-            <ellipse cx="68" cy="84" rx="6" ry="16" fill="#fff3c4"/>
-            <ellipse cx="112" cy="84" rx="6" ry="16" fill="#fff3c4"/>
-            <path d="M74 68 L84 100 L94 68 L104 100" stroke="#5c1349" stroke-width="2"/>
-            <!-- Dhol Sticks -->
-            <path d="M62 52 L78 72 M118 52 L102 72" stroke="#ffcf40" stroke-width="3" stroke-linecap="round"/>
-            <!-- Dancing Person Right -->
-            <circle cx="138" cy="54" r="7" fill="#f7e19c"/>
-            <path d="M138 63 L138 92 M138 70 L122 58 M138 70 L154 55 M138 92 L126 114 M138 92 L150 116" stroke="#f7e19c" stroke-width="3.2" stroke-linecap="round"/>
-            <!-- Music Notes -->
-            <text x="82" y="44" fill="#ffcf40" font-size="16" font-weight="bold">♪ ♫</text>
-          </svg>
-        </div>
-        <div class="ceremony-body">
-          <div>
-            <span class="c-date">शुक्रवार, 04 दिसंबर 2026</span>
-            <h3 class="c-title">संगीत बेला</h3>
-            <p class="c-desc">ढोल की थाप, पारिवारिक नृत्य और मधुर संगीत से सजी एक यादगार शाही शाम।</p>
-          </div>
-          <div class="c-footer">
-            <span>⏰ रात्रि 07:00 बजे से</span>
-            <span>उत्सव संध्या</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 4. Lagun (Kalash, Coconut & Royal Scroll) -->
-      <article class="ceremony-card">
-        <div class="art-banner lagun-theme">
-          <!-- Custom Royal Mangal Kalash & Lagun Patrika Art -->
-          <svg viewBox="0 0 160 160" fill="none">
-            <circle cx="80" cy="80" r="68" stroke="#f7e19c" stroke-width="2" stroke-dasharray="5 4"/>
-            <!-- Mango Leaves -->
-            <path d="M80 62 L62 44 M80 62 L80 38 M80 62 L98 44" stroke="#7ae582" stroke-width="3.5" stroke-linecap="round"/>
-            <!-- Sacred Coconut -->
-            <ellipse cx="80" cy="58" rx="13" ry="15" fill="#8d5524" stroke="#f7e19c" stroke-width="1.5"/>
-            <!-- Royal Kalash Pot -->
-            <path d="M62 72 H98 L92 84 C106 94 104 122 80 126 C56 122 54 94 68 84 Z" fill="#d4af37" stroke="#fff3c4" stroke-width="2"/>
-            <!-- Swastik on Kalash -->
-            <path d="M75 96 H85 M80 91 V101" stroke="#5c0b15" stroke-width="2.2" stroke-linecap="round"/>
-            <!-- Royal Garland -->
-            <path d="M46 118 Q80 142 114 118" stroke="#ff9f1c" stroke-width="4" stroke-dasharray="2 5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="ceremony-body">
-          <div>
-            <span class="c-date">शनिवार, 05 दिसंबर 2026</span>
-            <h3 class="c-title">लगुन समारोह</h3>
-            <p class="c-desc">वैदिक मंत्रोच्चार, मंगल कलश और पारंपरिक रीति-रिवाजों के साथ पावन लगुन विधान।</p>
-          </div>
-          <div class="c-footer">
-            <span>⏰ सुबह 09:00 बजे से</span>
-            <span>📍 जे. के. रिसॉर्ट</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 5. Panigrahan Sanskar (Royal Mandap & Vivah) -->
-      <article class="ceremony-card">
-        <div class="art-banner vivah-theme">
-          <!-- Custom Royal Wedding Mandap & Sacred Fire -->
-          <svg viewBox="0 0 180 160" fill="none">
-            <!-- Royal Palace Dome / Mandap Top -->
-            <path d="M35 66 Q90 22 145 66 Z" fill="#d4af37" stroke="#fff3c4" stroke-width="2"/>
-            <line x1="90" y1="18" x2="90" y2="34" stroke="#fff3c4" stroke-width="2.5"/>
-            <circle cx="90" cy="16" r="3.5" fill="#fff3c4"/>
-            <!-- Pillars -->
-            <rect x="46" y="66" width="8" height="62" fill="#f7e19c"/>
-            <rect x="126" y="66" width="8" height="62" fill="#f7e19c"/>
-            <!-- Varmala Garlands -->
-            <path d="M72 78 C72 96 86 96 86 78" stroke="#ff9f1c" stroke-width="3.5" fill="none"/>
-            <path d="M94 78 C94 96 108 96 108 78" stroke="#ff5252" stroke-width="3.5" fill="none"/>
-            <!-- Sacred Havan Kund & Agni -->
-            <polygon points="74,128 106,128 100,114 80,114" fill="#d4af37"/>
-            <path d="M90 96 C97 104 96 112 90 114 C84 112 83 104 90 96 Z" fill="#ffcf40"/>
-          </svg>
-        </div>
-        <div class="ceremony-body">
-          <div>
-            <span class="c-date">शनिवार, 05 दिसंबर 2026</span>
-            <h3 class="c-title">पाणिग्रहण संस्कार (गोधूली भांतर)</h3>
-            <p class="c-desc">गोधूली बेला में अग्नि को साक्षी मानकर प्रशांत और रितु का पावन सात फेरों का बंधन।</p>
-          </div>
-          <div class="c-footer">
-            <span>⏰ शाम 04:00 बजे से</span>
-            <span>📍 जे. के. रिसॉर्ट</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- 6. Aashirwad & Swaruchibhoj -->
-      <article class="ceremony-card">
-        <div class="art-banner">
-          <!-- Custom Royal Shehnai & Celebration Arch -->
-          <svg viewBox="0 0 180 160" fill="none">
-            <circle cx="90" cy="80" r="68" stroke="#f7e19c" stroke-width="1.8" stroke-dasharray="4 4"/>
-            <!-- Crossed Royal Shehnai -->
-            <path d="M52 108 L118 46 L128 56 L58 112 Z" fill="#f7e19c"/>
-            <path d="M128 108 L62 46 L52 56 L122 112 Z" fill="#d4af37"/>
-            <!-- Crown / Blessing Lotus -->
-            <path d="M90 66 C98 76 98 88 90 94 C82 88 82 76 90 66 Z" fill="#ffcf40"/>
-            <path d="M74 88 Q90 104 106 88" stroke="#fff3c4" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <text x="72" y="132" fill="#f7e19c" font-size="13" font-weight="bold">॥ शुभम् ॥</text>
-          </svg>
-        </div>
-        <div class="ceremony-body">
-          <div>
-            <span class="c-date">शनिवार, 05 दिसंबर 2026</span>
-            <h3 class="c-title">आशीर्वाद समारोह एवं स्वरुचिभोज</h3>
-            <p class="c-desc">नवदम्पति को शुभाशीष प्रदान करने एवं शाही स्वरुचिभोज हेतु आप सपरिवार सादर आमंत्रित हैं।</p>
-          </div>
-          <div class="c-footer">
-            <span>⏰ शाम 08:00 बजे से रात्रि तक</span>
-            <span>📍 जे. के. रिसॉर्ट</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Venue Section -->
-  <section id="venue" class="block">
-    <div class="venue-palace">
-      <div>
-        <div class="sec-kicker" style="color: var(--gold-bright);">विवाह स्थल एवं दिशा निर्देश</div>
-        <h3 class="display-hindi">जे. के. रिसॉर्ट, गाडरवारा</h3>
-        <p><strong>पता:</strong> जे. के. रिसॉर्ट, रेलवे स्टेशन के पास, पतलोन रोड, गाडरवारा, जिला नरसिंहपुर (म.प्र.)</p>
-        <div class="venue-note">
-          <strong>विशेष सूचना:</strong> 05 दिसंबर, दिन शनिवार के सभी कार्यक्रम <strong>जे. के. रिसॉर्ट, गाडरवारा</strong> में सम्पन्न होंगे।
-        </div>
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=JK+Resort+Patlon+Road+Gadarwara+Narsinghpur+Madhya+Pradesh"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-royal"
-        >
-          📍 Google Maps पर लोकेशन खोलें
-        </a>
-      </div>
-
-      <div class="palace-card" style="color: var(--ink);">
-        <span class="side-tag">स्नेह निमंत्रण</span>
-        <h4 style="color: var(--velvet-dark); font-size: 1.35rem; margin-bottom: 0.65rem;">के मंगल परिणय पर</h4>
-        <p style="font-size: 0.96rem; color: var(--muted);">
-          “आपके प्रति हमारा... हमारे प्रति आपका, थोड़ा सा स्नेह... थोड़ा सा प्यार, सौभाग्य है... आपके स्वागत का प्रसंग है... शुभ विवाह का, पदार्पण आपका... हमारा सौभाग्य होगा।”
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Family Directory -->
-  <section id="family" class="block">
-    <div class="sec-head">
-      <div class="sec-kicker">आत्मीय स्वागत</div>
-      <h2 class="sec-title display-hindi">दर्शनाभिलाषी एवं स्वागताकांक्षी</h2>
-      <div class="royal-ornament"><span></span>✦<span></span></div>
-    </div>
-
-    <div class="family-grid">
-      <div class="fam-box">
-        <h4>दर्शनाभिलाषी</h4>
-        <p><strong>नानाजी–नानी:</strong> श्री रामनारायण – लक्ष्मीबाई</p>
-        <p>श्री मोहनलाल – उमेदीबाई नामदेव</p>
-        <p>हरगोविन्द – बसंती बाई</p>
-        <p><strong>बुआजी:</strong> सत्यवती नामदेव</p>
-        <p><strong>फूफाजी–बुआ:</strong> लक्ष्मण – मुन्नीबाई नामदेव</p>
-        <p><strong>मामा–मामी:</strong> गोविन्द – पुष्पा, संतोष – प्रीति, विनोद – संध्या, प्रमोद – शिखा, सतीश – कीर्ति</p>
-      </div>
-
-      <div class="fam-box">
-        <h4>स्वागताकांक्षी</h4>
-        <p><strong>जीजाजी–दीदी:</strong> सुधीर – राजकुमारी नामदेव, महेश – पुष्पा नामदेव, प्रकाश – रश्मि नामदेव, पवन – पूजा नामदेव</p>
-        <p><strong>भैया–भाभी:</strong> महेश – मंजू नामदेव, गौरव – ममता नामदेव</p>
-        <p><strong>भतीजे–भतीजी:</strong> अंशुल, आशु, अंशिका</p>
-        <p><strong>बहन–भाई:</strong> शिवानी, पूर्वी, प्रियांशी, तनिशा, नैन्सी, दिव्यांशी, केशव</p>
-      </div>
-
-      <div class="fam-box">
-        <h4>विनीत एवं निहारते नयन</h4>
-        <p><strong>बड़ीमम्मी:</strong> छोटी बाई नामदेव</p>
-        <p><strong>पापा–मम्मी:</strong> श्रीराम नामदेव – श्रीमति लीलावती नामदेव एवं समस्त नामदेव परिवार</p>
-        <p style="margin-top: 1rem; padding-top: 0.7rem; border-top: 1px dashed rgba(212,175,55,0.4);">
-          <strong>निहारते नयन:</strong> पीहू, माधव, धैर्य
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p style="color: var(--gold-bright); font-size: 1rem; margin-bottom: 0.6rem;">
-      “भेज रहे हैं स्नेह निमंत्रण, तुम्हे बुलाने को, भूल न जाना शादी में आने को....”
-    </p>
-    <h4>प्रेषक — श्रीराम नामदेव (रिटा. स्वास्थ्य विभाग) एवं श्रीमति लीलावती नामदेव</h4>
-    <p>इंद्रा वार्ड, त्रिवेदी कालोनी, गाडरवारा, जिला नरसिंहपुर (म.प्र.)</p>
-    <p style="color: var(--gold-bright); font-weight: 700; margin-top: 0.4rem;">
-      संपर्क सूत्र: 9424304532, 9039188008
-    </p>
-  </footer>
-
-  <script>
-    // Live Countdown to 05 Dec 2026, 4:00 PM
-    const targetDate = new Date("2026-12-05T16:00:00+05:30").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        document.getElementById("countdown").innerHTML =
-          '<div class="cd-box" style="grid-column: 1 / -1;"><span class="cd-num">शुभ विवाह सम्पन्न</span></div>';
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("cd-days").textContent = String(days).padStart(2, "0");
-      document.getElementById("cd-hours").textContent = String(hours).padStart(2, "0");
-      document.getElementById("cd-mins").textContent = String(mins).padStart(2, "0");
-      document.getElementById("cd-secs").textContent = String(secs).padStart(2, "0");
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // Subtle Floating Rose & Marigold Petals
-    const canvas = document.getElementById("petalsCanvas");
-    const ctx = canvas.getContext("2d");
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    window.addEventListener("resize", () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    const colors = ["rgba(212, 175, 55, 0.45)", "rgba(185, 28, 56, 0.35)", "rgba(255, 179, 25, 0.4)"];
-    const petals = Array.from({ length: 22 }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: 4 + Math.random() * 5,
-      speedY: 0.6 + Math.random() * 1.1,
-      speedX: -0.4 + Math.random() * 0.8,
-      angle: Math.random() * Math.PI * 2,
-      spin: -0.02 + Math.random() * 0.04,
-      color: colors[Math.floor(Math.random() * colors.length)]
-    }));
-
-    function animatePetals() {
-      ctx.clearRect(0, 0, width, height);
-      petals.forEach((p) => {
-        p.y += p.speedY;
-        p.x += p.speedX + Math.sin(p.angle) * 0.3;
-        p.angle += p.spin;
-
-        if (p.y > height + 10) {
-          p.y = -10;
-          p.x = Math.random() * width;
-        }
-
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.angle);
-        ctx.fillStyle = p.color;
-        ctx.beginPath();
-        ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
-      });
-      requestAnimationFrame(animatePetals);
-    }
-
-    animatePetals();
-  </script>
-</body>
-</html>
+      <div class="

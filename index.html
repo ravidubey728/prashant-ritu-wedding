@@ -87,20 +87,20 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 0.85rem;
       flex-wrap: wrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.15rem;
+      gap: 1.05rem;
       flex-wrap: wrap;
     }
 
     .nav-links a {
       color: #f9eedc;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       transition: color 0.25s ease;
     }
@@ -109,36 +109,35 @@
       color: var(--gold-bright);
     }
 
-    .music-btn {
+    .action-pill-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.42rem 0.95rem;
+      gap: 0.4rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 999px;
       border: 1px solid var(--gold);
       background: linear-gradient(135deg, rgba(247, 225, 156, 0.18), rgba(212, 175, 55, 0.12));
       color: var(--gold-bright);
       font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.25s ease;
     }
 
-    .music-btn:hover,
-    .music-btn.playing {
+    .action-pill-btn:hover,
+    .action-pill-btn.playing {
       background: linear-gradient(135deg, var(--gold-bright), var(--gold));
       color: var(--velvet-dark);
-      box-shadow: 0 0 16px rgba(247, 225, 156, 0.55);
+      box-shadow: 0 0 14px rgba(247, 225, 156, 0.45);
     }
 
-    /* Hero Section */
+    /* Hero Section with Highlighted Glowing Floral Mahal & Flying Swans/Birds */
     .hero {
       position: relative;
       background:
-        radial-gradient(circle at 50% 18%, rgba(247, 225, 156, 0.24), transparent 55%),
-        radial-gradient(circle at 15% 85%, rgba(212, 175, 55, 0.16), transparent 45%),
-        linear-gradient(160deg, var(--velvet-dark) 0%, var(--velvet) 50%, var(--velvet-dark) 100%);
+        radial-gradient(circle at 50% 28%, rgba(255, 215, 102, 0.26), transparent 62%),
+        linear-gradient(165deg, var(--velvet-dark) 0%, var(--velvet) 55%, var(--velvet-dark) 100%);
       color: var(--ivory);
       text-align: center;
       padding: 4rem 1.25rem 4rem;
@@ -146,21 +145,73 @@
       overflow: hidden;
     }
 
-    .mandala-bg {
+    .palace-bg-art {
       position: absolute;
-      top: 50%;
       left: 50%;
-      width: 680px;
-      height: 680px;
-      transform: translate(-50%, -50%);
-      opacity: 0.09;
+      bottom: 0;
+      width: min(1060px, 122%);
+      height: auto;
+      transform: translateX(-50%);
+      opacity: 0.44;
       pointer-events: none;
-      animation: spinSlow 65s linear infinite;
+      z-index: 1;
+      filter: drop-shadow(0 0 22px rgba(255, 214, 90, 0.45));
+      animation: mahalShimmer 4s ease-in-out infinite alternate;
     }
 
-    @keyframes spinSlow {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
+    @keyframes mahalShimmer {
+      0% { filter: drop-shadow(0 0 16px rgba(247, 225, 156, 0.35)); }
+      100% { filter: drop-shadow(0 0 32px rgba(255, 215, 102, 0.68)); }
+    }
+
+    /* Flying Swans (Hans) & Birds Animations */
+    .swan-group-1 {
+      animation: swanGlideLeft 16s linear infinite;
+    }
+
+    .swan-group-2 {
+      animation: swanGlideRight 20s linear infinite;
+    }
+
+    @keyframes swanGlideLeft {
+      0% { transform: translate(1060px, 55px); }
+      100% { transform: translate(-220px, 18px); }
+    }
+
+    @keyframes swanGlideRight {
+      0% { transform: translate(-220px, 85px); }
+      100% { transform: translate(1080px, 38px); }
+    }
+
+    .wing-flap {
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      animation: flapWing 0.55s ease-in-out infinite alternate;
+    }
+
+    @keyframes flapWing {
+      0% { transform: rotate(-28deg); }
+      100% { transform: rotate(24deg); }
+    }
+
+    .bird-flock {
+      animation: flockFly 14s linear infinite;
+    }
+
+    @keyframes flockFly {
+      0% { transform: translate(1050px, 110px); }
+      100% { transform: translate(-180px, 60px); }
+    }
+
+    .bird-wing {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: smallBirdFlap 0.36s ease-in-out infinite alternate;
+    }
+
+    @keyframes smallBirdFlap {
+      0% { transform: scaleY(0.45); }
+      100% { transform: scaleY(1.2); }
     }
 
     .royal-arch {
@@ -171,15 +222,15 @@
       padding: 2.8rem 1.65rem 2.6rem;
       border: 2px solid var(--gold);
       border-radius: 220px 220px 28px 28px;
-      background: linear-gradient(180deg, rgba(255, 252, 245, 0.08), rgba(38, 4, 10, 0.58));
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), inset 0 0 35px rgba(212, 175, 55, 0.18);
+      background: linear-gradient(180deg, rgba(38, 4, 10, 0.48), rgba(38, 4, 10, 0.66));
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.48), inset 0 0 35px rgba(212, 175, 55, 0.2);
     }
 
     .royal-arch::before {
       content: "";
       position: absolute;
       inset: 9px;
-      border: 1px dashed rgba(247, 225, 156, 0.5);
+      border: 1px dashed rgba(247, 225, 156, 0.55);
       border-radius: 212px 212px 22px 22px;
       pointer-events: none;
     }
@@ -252,10 +303,12 @@
     }
 
     .cd-box {
-      background: rgba(255, 252, 245, 0.09);
-      border: 1px solid rgba(247, 225, 156, 0.4);
+      background: rgba(38, 4, 10, 0.52);
+      border: 1px solid rgba(255, 223, 120, 0.58);
       border-radius: 16px;
       padding: 0.8rem 0.4rem;
+      backdrop-filter: blur(3px);
+      box-shadow: 0 0 18px rgba(212, 175, 55, 0.18);
     }
 
     .cd-num {
@@ -281,8 +334,8 @@
     }
 
     .strip-item {
-      background: rgba(212, 175, 55, 0.14);
-      border: 1px solid rgba(247, 225, 156, 0.35);
+      background: rgba(212, 175, 55, 0.18);
+      border: 1px solid rgba(247, 225, 156, 0.42);
       padding: 0.55rem 1.15rem;
       border-radius: 999px;
       font-size: 0.92rem;
@@ -293,7 +346,7 @@
       margin-top: 1.7rem;
       display: flex;
       justify-content: center;
-      gap: 0.85rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
     }
 
@@ -301,12 +354,12 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.85rem 1.8rem;
+      padding: 0.82rem 1.65rem;
       border-radius: 999px;
       background: linear-gradient(135deg, var(--gold-bright), var(--gold));
       color: var(--velvet-dark);
       font-weight: 800;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
       text-decoration: none;
       border: none;
       cursor: pointer;
@@ -322,13 +375,13 @@
     .btn-ghost {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.82rem 1.55rem;
+      gap: 0.45rem;
+      padding: 0.8rem 1.45rem;
       border-radius: 999px;
       background: rgba(255, 252, 245, 0.08);
       color: var(--gold-bright);
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       border: 1px solid rgba(247, 225, 156, 0.55);
       cursor: pointer;
       transition: all 0.25s ease;
@@ -338,7 +391,7 @@
       background: rgba(247, 225, 156, 0.18);
     }
 
-    /* Common Section Layout - Always Visible */
+    /* Common Section Layout */
     section.block {
       max-width: 1160px;
       margin: 0 auto;
@@ -358,6 +411,31 @@
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
+    }
+
+    .couple-banner-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.8rem, 3vw, 2.2rem);
+      flex-wrap: wrap;
+      margin-top: 0.35rem;
+    }
+
+    .bride-groom-fig {
+      width: clamp(72px, 12vw, 105px);
+      height: auto;
+      filter: drop-shadow(0 8px 14px rgba(74, 10, 22, 0.18));
+      animation: coupleFloat 3s ease-in-out infinite alternate;
+    }
+
+    .bride-groom-fig.right-fig {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes coupleFloat {
+      0% { transform: translateY(2px); }
+      100% { transform: translateY(-5px); }
     }
 
     .sec-title {
@@ -716,6 +794,80 @@
       max-width: 720px;
       margin: 0.3rem auto;
     }
+
+    /* Print / Save E-Card Styles */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
+      }
+
+      header.topbar,
+      #petalsCanvas,
+      .palace-bg-art,
+      .cta-row,
+      .countdown-wrap,
+      .btn-royal {
+        display: none !important;
+      }
+
+      body {
+        background: #ffffff !important;
+        color: #1e1013 !important;
+        font-size: 11pt;
+        line-height: 1.5;
+      }
+
+      .hero {
+        background: #3b0912 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 1.5rem 1rem !important;
+        border-bottom: 2px solid #d4af37 !important;
+      }
+
+      .royal-arch {
+        border-radius: 24px !important;
+        padding: 1.4rem 1.2rem !important;
+        box-shadow: none !important;
+      }
+
+      section.block {
+        padding: 1.25rem 0.5rem !important;
+        break-inside: avoid;
+      }
+
+      .palace-card,
+      .ceremony-card,
+      .fam-box,
+      .venue-palace {
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+
+      .events-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.9rem !important;
+      }
+
+      .art-banner {
+        height: 115px !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .art-banner svg {
+        width: 95px !important;
+        height: 95px !important;
+      }
+
+      footer {
+        background: #26040a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 1.2rem !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -734,22 +886,97 @@
           <a href="#venue">विवाह स्थल</a>
           <a href="#family">नामदेव परिवार</a>
         </nav>
-        <button type="button" class="music-btn" id="musicToggleBtn" aria-label="Wedding Music Toggle">
+        <button type="button" class="action-pill-btn" id="musicToggleBtn" aria-label="Wedding Music Toggle">
           <span id="musicIcon">🎵</span>
           <span id="musicLabel">शहनाई बजाएं</span>
+        </button>
+        <button type="button" class="action-pill-btn" id="navPrintBtn" aria-label="Print or Save E-Card">
+          <span>🖨️</span>
+          <span>E-Card Print / Save</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Highlighted Floral Mahal & Live Flying Swans/Birds -->
   <section class="hero">
-    <svg class="mandala-bg" viewBox="0 0 200 200" fill="none" stroke="#f7e19c" stroke-width="1">
-      <circle cx="100" cy="100" r="92" />
-      <circle cx="100" cy="100" r="76" stroke-dasharray="4 4" />
-      <circle cx="100" cy="100" r="58" />
-      <polygon points="100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75" />
-      <polygon points="100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75" transform="rotate(45 100 100)" />
+    <svg class="palace-bg-art" viewBox="0 0 1000 440" fill="none">
+      <defs>
+        <linearGradient id="goldMahalGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fff0b3" stop-opacity="0.72"/>
+          <stop offset="65%" stop-color="#f7c948" stop-opacity="0.45"/>
+          <stop offset="100%" stop-color="#d4af37" stop-opacity="0.24"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Highlighted Palace Base & Courtyards -->
+      <rect x="65" y="238" width="870" height="202" fill="url(#goldMahalGrad)" stroke="#ffe58f" stroke-width="2.6"/>
+
+      <!-- Center Grand Dome (Gumbad) -->
+      <path d="M370 238 C370 112 630 112 630 238 Z" fill="url(#goldMahalGrad)" stroke="#fff0b3" stroke-width="3"/>
+      <line x1="500" y1="62" x2="500" y2="122" stroke="#fff0b3" stroke-width="3.5"/>
+      <circle cx="500" cy="58" r="8" fill="#ffd43b"/>
+
+      <!-- Left & Right Chhatri Domes -->
+      <path d="M150 238 C150 160 290 160 290 238 Z" fill="url(#goldMahalGrad)" stroke="#ffe58f" stroke-width="2.5"/>
+      <line x1="220" y1="132" x2="220" y2="168" stroke="#ffe58f" stroke-width="3"/>
+      <circle cx="220" cy="128" r="6" fill="#ffd43b"/>
+
+      <path d="M710 238 C710 160 850 160 850 238 Z" fill="url(#goldMahalGrad)" stroke="#ffe58f" stroke-width="2.5"/>
+      <line x1="780" y1="132" x2="780" y2="168" stroke="#ffe58f" stroke-width="3"/>
+      <circle cx="780" cy="128" r="6" fill="#ffd43b"/>
+
+      <!-- Palace Arches & Pillars -->
+      <path d="M440 440 V295 Q500 245 560 295 V440" stroke="#fff0b3" stroke-width="3"/>
+      <path d="M250 440 V320 Q295 282 340 320 V440" stroke="#ffe58f" stroke-width="2.4"/>
+      <path d="M660 440 V320 Q705 282 750 320 V440" stroke="#ffe58f" stroke-width="2.4"/>
+
+      <!-- Bright Hanging Floral Toran / Garlands across Mahal -->
+      <path d="M65 240 Q142 288 220 240 Q298 288 376 240 Q438 288 500 240 Q562 288 624 240 Q702 288 780 240 Q858 288 935 240"
+            stroke="#ffca28" stroke-width="5" stroke-dasharray="7 6" stroke-linecap="round"/>
+
+      <!-- Highlighted Marigold & Rose Flower Clusters on Mahal -->
+      <g fill="#ffaa00">
+        <circle cx="142" cy="264" r="11"/><circle cx="298" cy="264" r="11"/><circle cx="438" cy="264" r="12"/>
+        <circle cx="562" cy="264" r="12"/><circle cx="702" cy="264" r="11"/><circle cx="858" cy="264" r="11"/>
+      </g>
+      <g fill="#ff5277">
+        <circle cx="142" cy="264" r="5"/><circle cx="298" cy="264" r="5"/><circle cx="438" cy="264" r="5.5"/>
+        <circle cx="562" cy="264" r="5.5"/><circle cx="702" cy="264" r="5"/><circle cx="858" cy="264" r="5"/>
+      </g>
+
+      <!-- Garden Flower Bushes at Base -->
+      <g fill="#ffaa00">
+        <circle cx="105" cy="412" r="14"/><circle cx="132" cy="406" r="12"/><circle cx="195" cy="415" r="13"/>
+        <circle cx="805" cy="415" r="13"/><circle cx="868" cy="406" r="12"/><circle cx="895" cy="412" r="14"/>
+      </g>
+
+      <!-- Live Flying Hans (Swans) Gliding Right-to-Left -->
+      <g class="swan-group-1">
+        <!-- Swan 1 -->
+        <path d="M0 14 Q14 18 28 12 Q36 8 40 -2 Q42 -10 47 -8 Q51 -6 48 0 Q45 8 42 15 Q24 25 0 14 Z" fill="#fffaf0" stroke="#ffe58f" stroke-width="1.4"/>
+        <polygon points="48,-6 55,-5 48,-2" fill="#ff9f1c"/>
+        <path class="wing-flap" d="M18 11 Q26 -6 36 10 Z" fill="#ffe58f"/>
+
+        <!-- Swan 2 (slightly behind) -->
+        <path d="M-58 28 Q-46 31 -34 26 Q-27 23 -24 15 Q-22 8 -18 10 Q-14 12 -17 17 Q-19 23 -22 29 Q-38 37 -58 28 Z" fill="#fffaf0" stroke="#ffe58f" stroke-width="1.2"/>
+        <polygon points="-17,11 -11,12 -17,14" fill="#ff9f1c"/>
+        <path class="wing-flap" d="M-42 25 Q-35 11 -26 24 Z" fill="#ffe58f"/>
+      </g>
+
+      <!-- Live Flying Hans (Swans) Gliding Left-to-Right -->
+      <g class="swan-group-2">
+        <path d="M0 14 Q-14 18 -28 12 Q-36 8 -40 -2 Q-42 -10 -47 -8 Q-51 -6 -48 0 Q-45 8 -42 15 Q-24 25 0 14 Z" fill="#fffaf0" stroke="#ffe58f" stroke-width="1.4"/>
+        <polygon points="-48,-6 -55,-5 -48,-2" fill="#ff9f1c"/>
+        <path class="wing-flap" d="M-18 11 Q-26 -6 -36 10 Z" fill="#ffe58f"/>
+      </g>
+
+      <!-- Live Flock of Birds Flying Across -->
+      <g class="bird-flock">
+        <path class="bird-wing" d="M0 0 Q7 -10 14 0 Q21 -10 28 0" stroke="#fff3c4" stroke-width="2.4" stroke-linecap="round"/>
+        <path class="bird-wing" d="M36 14 Q42 6 48 14 Q54 6 60 14" stroke="#ffd43b" stroke-width="2.2" stroke-linecap="round"/>
+        <path class="bird-wing" d="M24 28 Q29 21 34 28 Q39 21 44 28" stroke="#fff3c4" stroke-width="2" stroke-linecap="round"/>
+      </g>
     </svg>
 
     <div class="royal-arch">
@@ -792,6 +1019,7 @@
       <div class="cta-row">
         <a href="#events" class="btn-royal">शगुन के सुनहरे पल देखें ↓</a>
         <button type="button" class="btn-ghost" id="heroMusicBtn">🎶 मंगल धुन सुनें</button>
+        <button type="button" class="btn-ghost" id="heroPrintBtn">💾 E-Card Save / Print</button>
       </div>
     </div>
   </section>
@@ -800,7 +1028,41 @@
   <section id="couple" class="block">
     <div class="sec-head">
       <div class="sec-kicker">पवित्र परिणय बंधन</div>
-      <h2 class="sec-title display-hindi">आयुष्मान एवं आयुष्मति</h2>
+
+      <div class="couple-banner-row">
+        <!-- Dulha (Groom) Royal Illustration -->
+        <svg class="bride-groom-fig" viewBox="0 0 110 130" fill="none" aria-label="Dulha Illustration">
+          <path d="M26 38 C26 16 84 16 84 38 C88 43 82 48 76 46 H34 C28 48 22 43 26 38 Z" fill="#8a1527" stroke="#d4af37" stroke-width="2.2"/>
+          <path d="M36 24 Q55 15 74 24" stroke="#f7e19c" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M68 22 C76 10 86 12 82 24" stroke="#f7e19c" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="55" cy="54" r="14" fill="#f5c69c" stroke="#6e1222" stroke-width="1.5"/>
+          <circle cx="50" cy="53" r="1.8" fill="#241316"/>
+          <circle cx="60" cy="53" r="1.8" fill="#241316"/>
+          <path d="M51 60 Q55 63 59 60" stroke="#6e1222" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M32 118 L36 74 Q55 68 74 74 L78 118 Z" fill="#5e111e" stroke="#d4af37" stroke-width="2"/>
+          <path d="M35 76 L72 114" stroke="#f7e19c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M40 76 Q55 92 70 76" stroke="#ff9f1c" stroke-width="3.5" stroke-dasharray="3 3" stroke-linecap="round"/>
+        </svg>
+
+        <h2 class="sec-title display-hindi">आयुष्मान एवं आयुष्मति</h2>
+
+        <!-- Dulhan (Bride) Royal Illustration -->
+        <svg class="bride-groom-fig right-fig" viewBox="0 0 110 130" fill="none" aria-label="Dulhan Illustration">
+          <path d="M25 116 C22 46 32 18 55 18 C78 18 88 46 85 116 Z" fill="#8a1527" stroke="#d4af37" stroke-width="2.2"/>
+          <path d="M32 24 Q55 16 78 24" stroke="#f7e19c" stroke-width="2.2" stroke-dasharray="4 3"/>
+          <circle cx="55" cy="38" r="3" fill="#ffcf40"/>
+          <line x1="55" y1="41" x2="55" y2="46" stroke="#ffcf40" stroke-width="1.8"/>
+          <circle cx="55" cy="55" r="13" fill="#f7cbb0" stroke="#6e1222" stroke-width="1.5"/>
+          <circle cx="50.5" cy="54" r="1.7" fill="#241316"/>
+          <circle cx="59.5" cy="54" r="1.7" fill="#241316"/>
+          <circle cx="48" cy="58" r="2.2" fill="#ff8fa3" opacity="0.6"/>
+          <circle cx="62" cy="58" r="2.2" fill="#ff8fa3" opacity="0.6"/>
+          <path d="M51.5 60.5 Q55 63.5 58.5 60.5" stroke="#6e1222" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M33 118 L38 75 Q55 69 72 75 L77 118 Z" fill="#6e1222" stroke="#f7e19c" stroke-width="2"/>
+          <path d="M40 77 Q55 92 70 77" stroke="#ff9f1c" stroke-width="3.5" stroke-dasharray="3 3" stroke-linecap="round"/>
+        </svg>
+      </div>
+
       <div class="royal-ornament"><span></span>✦<span></span></div>
     </div>
 
@@ -1100,6 +1362,13 @@
   </footer>
 
   <script>
+    // Print / Save E-Card Handler
+    function printOrSaveECard() {
+      window.print();
+    }
+    document.getElementById("navPrintBtn").addEventListener("click", printOrSaveECard);
+    document.getElementById("heroPrintBtn").addEventListener("click", printOrSaveECard);
+
     // In-Browser Wedding Shehnai & Gentle Rhythm Synthesizer
     let audioCtx = null;
     let isPlayingMusic = false;
